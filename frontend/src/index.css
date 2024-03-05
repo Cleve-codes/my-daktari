@@ -24,6 +24,11 @@ body {
 }
 
 @layer components{
+
+  .page {
+    @apply w-full overflow-hidden
+  }
+
   .container{
     @apply max-w-full w-[1440px] px-5 mx-auto;
   }

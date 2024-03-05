@@ -4,7 +4,7 @@ const SidePanel = () => {
       <div className="flex items-center justify-between">
         <p className="text_para mt-0 font-semibold">Ticket Price</p>
         <span className="textx-[16px] leading-7 lg:text-[32px] lg:leading-8 text-headingColor font-bold">
-          ₹200
+          $200
         </span>
       </div>
       <div className="mt-[30px]">

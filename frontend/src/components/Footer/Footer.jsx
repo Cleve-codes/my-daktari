@@ -84,7 +84,7 @@ const Footer = () => {
           <div>
             <img src={logo} alt="medicare-logo" />
             <p className="text-[16px] leading-7 font-[400]">
-              Copyright ©️ {year} developed by Saksham Raghuvanshi All right
+              Copyright ©️ {year} developed by Cleve All right
               reserved
             </p>
             <div className="flex items-center gap-3 mt-4">

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import avatar from "../assets/images/patient-avatar.png";
 import { useState } from "react";
+
+
 const Signup = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPreviewURL] = useState("");
