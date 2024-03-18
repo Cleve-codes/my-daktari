@@ -44,15 +44,10 @@ export const getUser = async (req, res) => {
 }
 
 export const getAllUsers = async (req, res) => {
-
-  const id = req.params.id
-
   try {
-
-    const users = await User.find({}).select("-password")
-    res.status(200).json({ success: true, message: "Users found", data: users })
-
+    const users = await User.find({ role: "patient" }).select("-password");
+    res.status(200).json({ success: true, message: "Users found", data: users });
   } catch (error) {
-    res.status(404).json({ success: false, message: "Failed to find users" })
+    res.status(404).json({ success: false, message: "Failed to find users" });
   }
 }

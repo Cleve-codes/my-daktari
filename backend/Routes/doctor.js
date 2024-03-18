@@ -6,6 +6,7 @@ import reviewRouter from "./review.js"
 
 const router = express.Router()
 
+// nested route
 router.use("/:doctorId/reviews", reviewRouter)
 
 router.get("/" ,getAllDoctors)

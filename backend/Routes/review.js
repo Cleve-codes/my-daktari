@@ -7,7 +7,10 @@ const router = express.Router({mergeParams: true})
 // nested routes
 
 
-router.route('/').get(getAllReviews).post(authenticate, authorize(['patient']), createReview)
+router
+    .route('/')
+    .get(getAllReviews)
+    .post(authenticate,  authorize(['doctor']), createReview)
 
 
 export default router

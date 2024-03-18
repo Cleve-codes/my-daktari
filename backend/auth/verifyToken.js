@@ -19,7 +19,7 @@ export const authenticate = async(req, res, next) => {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
       req.userId = decoded.id; // Attach user information to request object
-      req.user.role = decoded.role; // Attach user role to request object
+      req.user = { role: decoded.role }; // Attach user role to request object
       next();
   } catch (error) {
 
@@ -33,22 +33,15 @@ export const authenticate = async(req, res, next) => {
 
 
 export const authorize = roles => async (req, res, next) => {
-  const userId = req.userId
+  const userId = req.userId;
   let user;
 
-  const patient = await User.findById(userId);
-  const doctor = await Doctor.findById(userId);
-
-  if(patient){
-    user = patient;
+  user = await User.findById(userId);
+  if(!user){
+    user = await Doctor.findById(userId);
   }
 
-  if(doctor){
-    user = doctor;
-  }
-
-
-  if(!roles.includes(user.role)) {
+  if(!user || !roles.includes(user.role)) {
     return res.status(401).json({ success: false, msg: 'You are not authorized to access this route'})
   }
   next();

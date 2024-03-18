@@ -6,6 +6,7 @@ import {authenticate, authorize} from "../auth/verifyToken.js"
 const router = express.Router()
 
 router.get("/", authenticate, authorize(['admin']),getAllUsers)
+// router.get("/", getAllUsers)
 router.get("/:id", authenticate, authorize(['patient']),getUser)
 router.put("/:id", authenticate, authorize(['patient']),updateUser)
 router.delete("/:id", authenticate, authorize(['patient']),deleteUser)
