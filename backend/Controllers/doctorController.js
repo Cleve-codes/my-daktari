@@ -30,7 +30,16 @@ export const getDoctor = async (req, res) => {
 
   try {
 
-    const doctor = await Doctor.findById(id).select("-password")
+    const doctor = await Doctor.findById(id)
+    .populate("reviews")
+    .populate({
+        path: 'reviews',
+        populate: {
+            path: 'user',
+            model: 'User'
+        }
+    })
+    .select("-password")
     res.status(200).json({ success: true, message: "Doctor found", data: doctor })
 
   } catch (error) {
