@@ -29,6 +29,7 @@ const Signup = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    console.log(formData)
   };
   return (
     <section className="px-5 xl:px-0">
