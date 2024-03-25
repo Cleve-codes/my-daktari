@@ -57,6 +57,10 @@ const getUserProfile = async (req, res) => {
         res.status(500).json({ success: false, message: "Something went wrong, cannot get user data" })
     }
 }
+
+
+
+
 const getMyAppointment = async (req, res) => {
     try {
         // Step 1: Retrieve appointments from booking for specified user
@@ -70,7 +74,7 @@ const getMyAppointment = async (req, res) => {
         res.status(200).json(
             {
                 success: true,
-                message: 'Appointment are getting',
+                message: 'Appointment are fetching',
                 data: doctors
             }
         )

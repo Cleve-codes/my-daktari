@@ -8,7 +8,7 @@ import { authContext } from "../../context/AuthContext";
 
 import "./Header.css";
 
-import avatar from "../../assets/images/avatar-icon.png";
+// import avatar from "../../assets/images/avatar-icon.png";
 
 const navLinks = [
   {
@@ -34,20 +34,6 @@ const Header = () => {
   const menuRef = useRef(null);
   const { user, role, token } = useContext(authContext);
 
-  // console.log(user)
-
-  const handleStickyHeader = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        headerRef.current.classList.add("sticky__header");
-      } else {
-        headerRef.current.classList.remove("sticky__header");
-      }
-    });
-  };
 
   useEffect(() => {
     const handleStickyHeader = () => {
@@ -115,7 +101,6 @@ const Header = () => {
                       alt="avatar"
                     />
                   </figure>
-                  <h2>{user?.name}</h2>
                 </Link>
               </div>
             ) : (
