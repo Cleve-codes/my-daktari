@@ -23,7 +23,7 @@ const deleteDoctor = async (req, res) => {
 const getSingleDoctor = async (req, res) => {
     const id = req.params.id
     try {
-        const findDoctor = await Doctor.findById(id).populate("reviews").select("-password")
+        const findDoctor = await Doctor.findById(id).select("-password")
         res.status(200).json({ success: true, message: 'Doctor Found Successfully', data: findDoctor })
     } catch (error) {
         res.status(404).json({ success: false, message: 'No user found' })

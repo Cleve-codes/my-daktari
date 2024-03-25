@@ -21,7 +21,7 @@ export const register = async (req, res) => {
         }
         // Check if user exists
         if (user) {
-            res.status(400).json({
+            return res.status(400).json({
                 message: 'User already exists'
             })
         }
@@ -54,9 +54,12 @@ export const register = async (req, res) => {
 
 
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Register failed, Internal Server Error' })
+        // console.log(JSON.stringify({ message: error.message, stack: error.stack }, null, 2));
+        res.status(500).json({ success: false, message: "Register failed, Internal server error" });
     }
 }
+
+
 export const login = async (req, res) => {
     const { email } = req.body
     try {
@@ -88,7 +91,6 @@ export const login = async (req, res) => {
         res.status(200).json({ success: true, message: 'Successfully Login', token, data: { ...rest }, role })
 
     } catch (error) {
-        console.log(error)
-        res.status(500).json({ success: false, message: "Failed to login" })
+        res.status(500).json({ success: false, message: 'Failed to login' })
     }
 }

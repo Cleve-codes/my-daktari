@@ -19,7 +19,7 @@ const Signup = () => {
     email: "",
     password: "",
     photo: selectedFile,
-    gender: "",
+    gender: "male",
     role: "patient",
   });
 
@@ -56,17 +56,18 @@ const Signup = () => {
         body: JSON.stringify(formData),
       });
 
-      const {message} = await res.json();
+      const data = await res.json();
 
       if(!res.ok){
-        console.log(message)
-        throw new Error(message)
+        console.log(data)
+        throw new Error(data.message)
       }
 
       setLoading(false);
-      toast.success(message)
+      toast.success(data.message)
       navigate("/login");
     } catch (err) {
+      console.log(err)
         toast.error(err.message)
         setLoading(false);
     }
