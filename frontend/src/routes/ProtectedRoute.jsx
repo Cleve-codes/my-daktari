@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom'
 const ProtectedRoute = ({children, allowedRoles}) => {
 
   const {token, role} = useContext(authContext)
-
+  console.log(role)
   const isAllowed = allowedRoles.includes(role)
   const accessibleRoute = token && isAllowed ? children : <Navigate to="/login" replace={true} />
 

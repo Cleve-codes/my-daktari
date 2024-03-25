@@ -8,7 +8,7 @@ import { authContext } from "../../context/AuthContext";
 
 import "./Header.css";
 
-// import avatar from "../../assets/images/avatar-icon.png";
+import avatar from "../../assets/images/avatar-icon.png";
 
 const navLinks = [
   {
@@ -96,7 +96,7 @@ const Header = () => {
                 <Link to={`${role === 'doctor' ? '/doctors/profile/me': '/users/profile/me'}`}>
                   <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
                     <img
-                      src={user?.photo}
+                      src={user.photo ? user.photo : avatar}
                       className="w-full rounded-full"
                       alt="avatar"
                     />

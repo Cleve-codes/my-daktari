@@ -100,7 +100,7 @@ const Login = () => {
               type="submit"
               className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg py-3"
             >
-              {loading ? <HashLoader /> : "Login"}
+              {loading ? <HashLoader size={25} color="#ffffff" /> : "Login"}
             </button>
           </div>
         </form>
