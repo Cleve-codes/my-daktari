@@ -2,7 +2,7 @@
 import signupImg from "../assets/images/signup.gif";
 import { Link, useNavigate } from "react-router-dom";
 
-import avatar from "../assets/images/patient-avatar.png";
+// import avatar from "../assets/images/patient-avatar.png";
 import { useState } from "react";
 
 import uploadImageToCloudinary from "../utils/uploadCloudinary";
@@ -73,6 +73,8 @@ const Signup = () => {
     }
 
   };
+
+
   return (
     <section className="px-5 xl:px-0">
       <div className="max-w-[1170px] mx-auto">
