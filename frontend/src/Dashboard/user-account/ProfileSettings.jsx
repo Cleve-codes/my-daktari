@@ -69,7 +69,7 @@ const ProfileSettings = ({user}) => {
 
       setLoading(false);
       toast.success(data.message)
-      navigate("/users/profile/me");
+      navigate("/user/profile/me");
     } catch (err) {
       console.log(err)
         toast.error(err.message)
