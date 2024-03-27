@@ -3,7 +3,7 @@ import { BASE_URL } from "../../../config";
 import DoctorCard from "../../pages/Doctors/DoctorCard";
 import Loader from "../../components/Loader/Loader";
 import Error from "../../components/Error/Error";
-import useFetchData from "../../hooks/useFetchData";
+import useFetchData from "../../Hooks/useFetchData";
 
 const MyBookings = () => {
   const {

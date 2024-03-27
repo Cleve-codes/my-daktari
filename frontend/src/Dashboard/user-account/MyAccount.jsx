@@ -5,7 +5,7 @@ import ProfileSettings from "./ProfileSettings";
 import userImg from "../../assets/images/doctor-img01.png";
 
 import { authContext } from "../../context/AuthContext";
-import useGetProfile from "../../hooks/useFetchData"
+import useGetProfile from "../../Hooks/useFetchData"
 import { BASE_URL } from "../../../config";
 
 import Loader from "../../components/Loader/Loader";
