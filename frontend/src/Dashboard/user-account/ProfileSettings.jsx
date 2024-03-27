@@ -41,7 +41,7 @@ const ProfileSettings = ({user}) => {
     setSelectedFile(data.url)
     setFormData({ ...formData, photo: data.url });
 
-    console.log(data);
+    // console.log(data);
   };
 
   const submitHandler = async (event) => {

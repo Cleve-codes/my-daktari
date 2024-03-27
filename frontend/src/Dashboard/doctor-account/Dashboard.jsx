@@ -15,7 +15,7 @@ const Dashboard = () => {
     `${BASE_URL}/doctor/profile/me`
   );
 
-  console.log(data.name)
+  // console.log(data.name)
 
   const [tab, setTab] = useState("overview");
 
