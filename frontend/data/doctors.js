@@ -4,9 +4,9 @@ import doctorImg03 from "../src/assets/images/doctor-img03.png";
 
 export const doctors = [
   {
-    id: "01",
+    _id: "01",
     name: "Dr. Goggins",
-    specialty: "Surgeon",
+    speciality: "Surgeon",
     avgRating: 4.8,
     totalRating: 272,
     photo: doctorImg01,
@@ -18,9 +18,9 @@ export const doctors = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, alias!",
   },
   {
-    id: "02",
+    _id: "02",
     name: "Dr. Declan Rice",
-    specialty: "Neurologist",
+    speciality: "Neurologist",
     avgRating: 4.8,
     totalRating: 272,
     photo: doctorImg02,
@@ -32,9 +32,9 @@ export const doctors = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, alias!",
   },
   {
-    id: "03",
+    _id: "03",
     name: "Dr. Sven Hawking",
-    specialty: "Gynaecology",
+    speciality: "Gynaecology",
     avgRating: 4.8,
     totalRating: 272,
     photo: doctorImg03,

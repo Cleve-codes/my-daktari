@@ -28,7 +28,7 @@ const Profile = ({doctorData}) => {
       phone:doctorData?.phone,
       bio: doctorData?.bio,
       gender: doctorData?.gender,
-      specialization: doctorData?.specialization,
+      specialization: doctorData?.speciality,
       ticketPrice:doctorData?.ticketPrice,
       qualifications:doctorData?.qualifications,
       experiences: doctorData?.experiences,
@@ -48,7 +48,7 @@ const Profile = ({doctorData}) => {
 
     try {
 
-      const res = await fetch( `${BASE_URL}/doctors/${doctorData._id}`,{
+      const res = await fetch( `${BASE_URL}/doctor/${doctorData._id}`,{
         method:"PUT",
         headers:{
           'content-type':'application/json',
