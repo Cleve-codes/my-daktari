@@ -18,9 +18,13 @@ import Testimonial from "../components/Testimonial/Testimonial"
 // import Testimonial from "../Components/Testimonial/Testimonial";
 import useTitle from "../Hooks/useTitle";
 
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   useTitle("Home");
+
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="hero__section pt-[60px] 2xl:h-[800px]">
@@ -37,7 +41,9 @@ const Home = () => {
                   ultricies facilisis. Etiam ut velit dolor. Quisque lobortis
                   nisl a vestibulum aliquet.
                 </p>
-                <button className="btn">Request an Appointment</button>
+                <button className="btn" >
+                  <Link to="/doctors">Request an Appointment</Link>
+                  </button>
               </div>
               <div className="mt-[30px] lg:mt-[70px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[30px]">
                 <div>

@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(
-    `${BASE_URL}/doctor/profile/me`
+    `${BASE_URL}/doctors/profile/me`
   );
 
   // console.log(data.name)

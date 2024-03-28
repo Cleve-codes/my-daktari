@@ -51,7 +51,7 @@ const ProfileSettings = ({user}) => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${BASE_URL}/user/${user._id}`, {
+      const res = await fetch(`${BASE_URL}/users/${user._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

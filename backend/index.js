@@ -1,38 +1,57 @@
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import dotenv from 'dotenv'
-import express from 'express'
-import mongoose from 'mongoose'
-import router from './src/routes/routes.js'
+import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import path from "path"; // Import the 'path' module
 
-dotenv.config()
+import authRoute from "./Routes/auth.js";
+import userRoute from "./Routes/user.js";
+import doctorRoute from "./Routes/doctor.js";
+import reviewRoute from './Routes/review.js';
+import bookingRoute from "./Routes/booking.js";
 
-const app = express()
-const port = process.env.PORT || 8000
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 8000;
 
 const corsOptions = {
-    origin: true
-}
+  origin: true,
+};
+
+// Middleware to serve static files (images)
+// app.use('/assets', express.static(path.join(__dirname, 'frontend', 'src', 'assets')));
 
 app.get('/', (req, res) => {
-    res.send("Api is working")
-})
+  res.send("API is working");
+});
 
 // Database connection
-mongoose.set('strictQuery', false)
+mongoose.set("strictQuery", false);
 const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URL)
-        console.log('MongoDB is connected');
-    } catch (error) {
-        console.log('MongoDB connection error: ' + error);
-    }
-}
+  try {
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    console.log("MongoDB database connected");
+  } catch (err) {
+    console.error("MongoDB connection failed:", err);
+  }
+};
 
 // Middleware
-app.use(express.json())
-app.use(cookieParser())
-app.use(cors(corsOptions))
-app.use('/api/v1', router)
+app.use(express.json()); // for parsing application/json content type
+app.use(cookieParser());
+app.use(cors(corsOptions));
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/users', userRoute);
+app.use('/api/v1/doctors', doctorRoute);
+app.use('/api/v1/reviews', reviewRoute);
+app.use('/api/v1/bookings', bookingRoute);
 
-app.listen(port, () => { connectDB(), console.log('Server is running ' + port) })
+app.listen(port, () => {
+  connectDB();
+  console.log("Server is running on port " + port);
+});

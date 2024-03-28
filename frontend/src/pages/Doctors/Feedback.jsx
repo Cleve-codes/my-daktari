@@ -1,62 +1,58 @@
 import { useState } from "react";
-import { AiFillStar } from "react-icons/ai";
-const FeedBackForm = () => {
-  const [rating, setRating] = useState(0);
-  const [hover, sethover] = useState(0);
-  const [reviewtext, setReviewText] = useState("");
+import avatar from "../../assets/images/avatar-icon.png";
+import { formateDate } from "../../utils/formatDate";
+import {AiFillStar} from 'react-icons/ai';
+import FeedbackForm from "./FeedbackForm";
 
-  const handleSubmitReview = async (e) => {
-    e.preventDefault();
-  };
+
+const Feedback = ({reviews, totalRating}) => {
+
+  const [showFeedbackForm, setShowFeedbackform] = useState(false)
   return (
-    <form action="">
-      <h3 className="text-headingColor text-[16px] leading-6 font-semibold mb-4">
-        How would you rate the overall experience ?*
-      </h3>
-      <div>
-        {[...Array(5).keys()].map((_, index) => {
-          index += 1;
-          return (
-            <button
-              key={index}
-              type="button"
-              className={`${
-                index <= ((rating && hover) || hover)
-                  ? "text-yellowColor"
-                  : "text-gray-400"
-              } bg-transparent border-none outline-none text-[22px] cursor-pointer`}
-              onClick={() => setRating(index)}
-              onMouseLeave={() => sethover(rating)}
-              onMouseEnter={() => sethover(index)}
-              onDoubleClick={() => {
-                sethover(0);
-                setRating(0);
-              }}
-            >
-              <span>
-                <AiFillStar />
-              </span>
-            </button>
-          );
-        })}
+    <div>
+      <div className="mb-[50px] ">
+        <h4 className="text-[20px] leading-[30px] font-bold text-headingColor mb-[30px]">
+          All reviews {totalRating}
+        </h4>
+
+        { reviews?.map((review, index) =>
+         <div key={index} className="flex justify-between gap-10 mb:[30px]">
+           <div className="flex gap-3">
+             <figure className="w-10 h-10 rounded-full">
+               <img className="w-full" src={review.user?.photo} alt="" />
+             </figure>
+
+             <div>
+               <h5 className="text-[16px] leading-6 text-primaryColor font-bold">
+                 {review?.user?.name}
+               </h5>
+               <p className="text-[14px] leading-5 text=textColor">
+                 {formateDate(review?.createdAt)}
+               </p>
+
+               <p className="text__para mt-3 font-medium text-[15px]">
+                 {review?.reviewText}
+               </p>
+             </div>
+           </div>
+
+           <div className="flex gap-1">
+             {[...Array(review?.rating).keys()].map((_, index) => <AiFillStar key={index} color = '#0067FF'/> )}
+           </div>
+         </div>
+
+        )  }
       </div>
 
-      <div className="mt-[30px]">
-        <h3 className="text-headingColor text-[16px] leading-6 font-semibold mb-4">
-          Share your feedback or suggestion*
-        </h3>
-        <textarea
-          className="border border-solid border-[#0066ff34] focus:outline outline-primaryColor w-full px-4 py-3 rounded-md"
-          placeholder="Write your message"
-          rows={5}
-          onChange={(e) => setReviewText(e.target.value)}
-        ></textarea>
-      </div>
-      <button type="submit" className="btn" onClick={handleSubmitReview}>
-        Submit Feedback
-      </button>
-    </form>
+       {!showFeedbackForm && <div className="text-center">
+          <button className="btn"
+          onClick={() => setShowFeedbackform(true)}
+          >Give FeedBack</button>
+      </div>}
+
+      {showFeedbackForm && (<FeedbackForm/>)}
+    </div>
   );
 };
 
-export default FeedBackForm;
+export default Feedback;

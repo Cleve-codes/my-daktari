@@ -17,7 +17,7 @@ const DoctorDetails = () => {
     data: doctor,
     loading,
     error,
-  } = useFetchData(`${BASE_URL}/doctor/${id}`);
+  } = useFetchData(`${BASE_URL}/doctors/${id}`);
 
   const {
     name,
@@ -33,6 +33,8 @@ const DoctorDetails = () => {
     ticketPrice,
     photo,
   } = doctor;
+
+  // console.log(reviews)
 
   // console.log(doctor.speciality)
 

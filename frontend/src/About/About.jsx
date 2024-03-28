@@ -15,18 +15,21 @@ const About = () => {
           <div className="w-full lg:w-1/2 xl:w-[670px] order-1 lg:order-2">
             <h1 className="heading">Proud to be one of the nations best</h1>
             <p className="text_para">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est
-              minima consequatur commodi corrupti doloribus, ea cum maxime, nemo
-              debitis praesentium sunt neque nisi recusandae. Necessitatibus
-              omnis velit laudantium nemo at.
+              At Healthy Living Clinic, we are dedicated to promoting holistic
+              wellness and empowering individuals to take control of their
+              health journey. Our team of experienced healthcare professionals
+              is committed to providing personalized care and support to help
+              you achieve your wellness goals.
             </p>
             <p className="text_para mt-[30px]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-              nisi unde aut distinctio itaque quos sint est dicta porro magni
-              officia ut soluta quo corporis quibusdam, deserunt fugit optio
-              laborum.
+              Whether you're seeking preventive care, managing chronic
+              conditions, or striving for overall well-being, we're here to
+              guide you every step of the way. With a focus on evidence-based
+              practices and compassionate care, we strive to create a supportive
+              and nurturing environment where you feel valued and understood.
             </p>
-            <Link to="/">
+
+            <Link to="/services">
               <button className="btn">Learn More</button>
             </Link>
           </div>
