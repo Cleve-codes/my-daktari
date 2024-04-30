@@ -44,7 +44,6 @@ const Signup = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     // console.log(formData)
-
     setLoading(true);
 
     try {
