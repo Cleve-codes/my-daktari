@@ -17,7 +17,7 @@ const DoctorDetails = () => {
     data: doctor,
     loading,
     error,
-  } = useFetchData(`${BASE_URL}/doctors/${id}`);
+  } = useFetchData(`${BASE_URL}/api/v1/doctors/${id}`);
 
   const {
     name,

@@ -10,7 +10,7 @@ const MyBookings = () => {
     data: appointments,
     loading,
     error,
-  } = useFetchData(`${BASE_URL}/users/appointments/my-appointments`);
+  } = useFetchData(`${BASE_URL}/api/v1/users/appointments/my-appointments`);
 
   return (
     <div>
